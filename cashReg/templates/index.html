@@ -1,0 +1,82 @@
+{% extends 'nav.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Cash Register</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../../dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Cash Register</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">A responsive and friendly calculation buddy!</h5>
+      </div>
+      {% if request.user.is_authenticated %}
+      {% else %}
+      <div class="row center">
+        <a href="{% url 'login' %}" id="download-button" class="btn-large waves-effect waves-light orange">Login</a>
+      </div>
+      <br><br>
+      {% endif %}
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4 grey lighten-2">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Speeds up development</h5>
+
+            <p class="light">It provides up-to-date and real-time reporting on your sales by stores and you don’t need additional servers or software for this. All you need to do is log in and you have a full overview of all transactions of the online cash register.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4 cyan lighten-4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">User Experience Focused</h5>
+
+            <p class="light">Flexibility has always been a key feature, and our expertise in creating highly customized solutions comes from our team of veteran developers who have years of experience building specialized business solutions.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4 lime lighten-3">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Easy to work with</h5>
+
+            <p class="light">We strive to set the highest possible standards for POS flexibility, and by doing so we’re transforming the retail landscape into one that’s highly personalized and very efficient. Understability to a friendly level.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+  
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../../bin/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
+{% endblock %}

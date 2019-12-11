@@ -1,0 +1,36 @@
+{% extends 'nav.html' %}
+
+
+
+{% block content %}
+{% load material_form %}
+<html lang="en" >
+<head>
+	<title>Cash Reg</title>
+	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+	<link rel='stylesheet' href='/static/css/materialize.css'>
+	<link rel='stylesheet' href='/static/css/materialize.min.css'>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js'></script>
+</head>
+<body>
+    <div class="section"></div>
+    <div class="container">
+        <div class="row valign-wrapper">
+            <div class="col s8 offset-s2 valign">
+                <div class="card">
+                    <div class="card-content black-text">
+                        <span class="card-title center red-text">Add Product</span>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {% form form=form %}{% endform %}
+                            <button type="submit" name="_submit" class="btn red">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

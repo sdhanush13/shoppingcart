@@ -1,0 +1,30 @@
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+  <link rel='stylesheet' href='/static/css/materialize.css'>
+  <link rel='stylesheet' href='/static/css/materialize.min.css'>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.2/js/materialize.min.js'></script>
+<div class="row">
+  <div class="navbar-fixed teal">
+    <nav class="orange lighten-2">
+      <div class="container nav-wrapper">
+        <a href="#" class="brand-logo red-text">Cash Register</a>
+        <ul class="right hide-on-med-and-down">
+           {% if request.user.is_authenticated %}
+                        <li class="red-text">Welcome , {{ user.first_name }} {{ user.last_name }}<li>
+                        <li><a class="red-text" href="{% url 'logout' %}?next={% url 'home' %}">Logout</a></li>
+                        <li><a href="{% url 'list' %}" class="red-text">Bill</a></li>
+            {% else %}
+                        <li class="red-text"><a href="{% url 'login' %}">Login</a></li>
+            {% endif %}
+            {% if request.user.is_superuser %}
+                        <li><a class="red-text" href="{% url 'signup' %}">Register</a></li>
+                        <li><a class="red-text" href="{% url 'product-entry' %}">Add Product</a></li>
+             
+              {% endif %}
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+{% block content %}
+{% endblock %}
